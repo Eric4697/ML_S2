@@ -1,0 +1,333 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "ce6f38eb-6620-4002-8a56-a33ed8c5495b",
+   "metadata": {},
+   "source": [
+    "# **Rapport de Projet \\- PoketraFinday**\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2c009e00-8f89-4259-b05b-4c492b7fec41",
+   "metadata": {},
+   "source": [
+    "## **Examen Final Machine Learning & Data Science**\n",
+    "\n",
+    "Réalisé au sein de ISPM - Madagascar (www.ispm-edu.com)\n",
+    "\n",
+    "### **1\\. Informations sur le Groupe**\n",
+    "\n",
+    "Merci de lister tous les membres de l'équipe ayant participé au Hackathon.\n",
+    "\n",
+    "#### Membre 1 : \n",
+    "* nom : RASOLOFOARIJAONA\n",
+    "* prénom(s) : Eric\n",
+    "* classe : IMTICIA 5A\n",
+    "* numéro : 02\n",
+    "* rôle : développeur\n",
+    "\n",
+    "#### Membre 2 : \n",
+    "* nom : ANDRIANANTENAINA \n",
+    "* prénom(s) : Mialy Riantsoa\n",
+    "* classe : IMTICIA 5A\n",
+    "* numéro : 12\n",
+    "* rôle : analyste\n",
+    "\n",
+    "#### Membre 3 : \n",
+    "* nom : RAKOTONANDRASANA\n",
+    "* prénom(s) : Laethicia Prisca\n",
+    "* classe : IMTICIA 5A\n",
+    "* numéro : 04\n",
+    "* rôle : développeur\n",
+    "\n",
+    "#### Membre 4 : \n",
+    "* nom : VALISOA\n",
+    "* prénom(s) : Mampionona \n",
+    "* classe : ESIIA 5A\n",
+    "* numéro : 03\n",
+    "* rôle : analyste\n",
+    "\n",
+    "#### Membre 5 : \n",
+    "* nom : RAKOTOSON\n",
+    "* prénom(s) : Finiavana lucas\n",
+    "* classe : ESIIA 5A\n",
+    "* numéro : 26\n",
+    "* rôle : analyste"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7adb5c18-4839-49bb-bf28-eb537c421da1",
+   "metadata": {},
+   "source": [
+    "### **2\\. Résumé du Travail**\n",
+    "\n",
+    "## Problématique :\n",
+    "\n",
+    "* PoketraFinday fait face à une augmentation des transactions potentiellement frauduleuses, mettant en risque la sécurité des utilisateurs et la fiabilité du service financier. L’absence de mécanismes avancés de détection rend la plateforme vulnérable aux comportements anormaux et au détournement de micro-crédits. Résoudre ce problème est critique pour protéger les clients, limiter les pertes financières et renforcer la confiance dans l’écosystème numérique de la fintech.\n",
+    "\n",
+    "## Méthodologie Adoptée :\n",
+    "\n",
+    "* Nous avons d’abord réalisé une analyse exploratoire (EDA) pour identifier les tendances, outliers et patterns de fraude dans les données. Un pré-traitement spécifique a été appliqué : gestion du déséquilibre, encodage des variables catégorielles, suppression des champs non pertinents et normalisation lorsque nécessaire. Plusieurs modèles ont été testés (Logistic Regression, RandomForest, XGBoost) avec une validation croisée (Stratified K-Fold) pour garantir une évaluation robuste. L’optimisation des hyper-paramètres a permis d'améliorer la détection tout en limitant les faux positifs.\n",
+    "\n",
+    "## Résultats Obtenus :\n",
+    "* Le meilleur modèle (XGBoost) a obtenu un F1-Score de 0.8171 sur le jeu de validation, démontrant une capacité équilibrée à identifier les transactions frauduleuses. Le modèle a également atteint une Précision de 0.8228, un Rappel de 0.8115 et un AUC-ROC de 0.9012. Une découverte clé : certaines variables, notamment celles liées au risque (comme merchant_risk_score), à la localisation (transaction_country) et les patterns temporels, se sont révélées particulièrement discriminantes pour détecter la fraude.\n",
+    "\n",
+    "## Mots-clés :\n",
+    "\n",
+    "* Fraude, Machine Learning, Imbalanced Data, XGBoost, Financial Security"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9b25b893-978a-4fca-9c37-b7e9d7af2042",
+   "metadata": {},
+   "source": [
+    "### **3\\. Contenu du Repository**\n",
+    "Voici la liste des fichiers et liens importants pour évaluer notre travail :\n",
+    "\n",
+    "* **notebook.ipynb** : Le code complet (EDA, Preprocessing, Modélisation) avec commentaires.  \n",
+    "* **submission.csv** : Nos prédictions sur le fichier test.csv.  \n",
+    "* **readme.md** : Ce présent rapport.  \n",
+    "* **final_model.pkl**\n",
+    "* **scaler.pkl**\n",
+    "* **🔗 Liens Utiles :**\n",
+    "  https://drive.google.com/file/d/1Ce9ffIovBVVnoIp9s8hRtLNjdMydQgVk/view?usp=sharing"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6a3056b8-e56c-4f4d-aa74-797423ca3823",
+   "metadata": {},
+   "source": [
+    "### **4\\. Réponses aux Questions d'Analyse**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bb367af5-96e4-47eb-aae0-7840416e16ff",
+   "metadata": {},
+   "source": [
+    "**Q1. Pourquoi on utilise F1-Score au lieu de accuracy ?**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b9db4e3a-e8d4-41d7-8be2-7f04fed380b2",
+   "metadata": {},
+   "source": [
+    "**1. Le Problème du Déséquilibre de Classe**\n",
+    "Dans la détection de fraude, le jeu de données est très déséquilibré :\n",
+    "   * *Transactions Légitimes (Classe Négative) : Plus de 99 % des cas.*\n",
+    "   * *Transactions Frauduleuses (Classe Positive) : Moins de 1 % des cas.*\n",
+    "\n",
+    "Si vous utilisiez l'Accuracy, un modèle pourrait obtenir un score très élevé (par exemple, 99 %) en prédisant simplement que toutes les transactions sont légitimes. Ce modèle serait inutile car il ne détecterait aucune fraude, mais son Accuracy serait trompeuse.\n",
+    "\n",
+    "**L'Accuracy se calcule comme suit :**\n",
+    "**Accuracy=Total des ObservationsVrais Positifs+Vrais Neˊgatifs​**\n",
+    "\n",
+    "**2. L'Importance de la Précision et du Rappel**\n",
+    "\n",
+    "Le F1-Score contourne ce problème en combinant deux métriques essentielles qui se concentrent sur la performance de la classe minoritaire (la fraude) : la Précision et le Rappel.\n",
+    "\n",
+    "**A. Le Rappel (Recall/Sensibilité)**\n",
+    "\n",
+    "Le Rappel mesure la capacité du modèle à détecter toutes les fraudes réelles.\n",
+    "Rappel=Vrais Positifs+Faux NeˊgatifsVrais Positifs​\n",
+    "\n",
+    "    Coût d'un Faux Négatif (FN): C'est une vraie fraude manquée par le modèle. Le coût est direct (perte financière) et élevé.\n",
+    "\n",
+    "    Objectif: Maximiser le Rappel pour minimiser les pertes financières dues aux fraudes non détectées.\n",
+    "\n",
+    "**B. La Précision (Precision)**\n",
+    "\n",
+    "La Précision mesure la fiabilité des prédictions de fraude : parmi toutes les transactions que le modèle a signalées comme fraudes, combien étaient réellement frauduleuses.\n",
+    "Preˊcision=Vrais Positifs+Faux PositifsVrais Positifs​\n",
+    "\n",
+    "    Coût d'un Faux Positif (FP): C'est une transaction légitime signalée à tort comme fraude (fausse alarme). Le coût n'est pas financier, mais opérationnel (inspection manuelle, blocage du client, impact sur l'expérience utilisateur) et peut être coûteux en temps et en ressources.\n",
+    "\n",
+    "    Objectif: Maximiser la Précision pour minimiser les fausses alertes et le travail d'investigation inutile.\n",
+    "\n",
+    "**3. Le Rôle du F1-Score (Moyenne Harmonique)**\n",
+    "\n",
+    "Le F1-Score est la moyenne harmonique de la Précision et du Rappel. Il est calculé comme suit :\n",
+    "F1-Score=2×Preˊcision+RappelPreˊcision×Rappel​\n",
+    "\n",
+    "Le F1-Score est le meilleur indicateur car il cherche un équilibre :\n",
+    "\n",
+    "    Un modèle avec un Rappel parfait (100 %) mais une Précision très faible (beaucoup de fausses alertes) aura un F1-Score médiocre.\n",
+    "\n",
+    "    Un modèle avec une Précision parfaite (100 %) mais qui manque la moitié des fraudes (Rappel faible) aura aussi un F1-Score médiocre.\n",
+    "\n",
+    "En optimisant le F1-Score, on s'assure que le modèle est non seulement capable de détecter un maximum de fraudes (bon Rappel), mais que ses alertes sont également fiables (bonne Précision)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f32963b6-0860-40d3-9207-4891e80d8833",
+   "metadata": {},
+   "source": [
+    "**Q2. Qu'est ce qui est plus grave ici, les Faux Positifs ou les Faux Négatifs ?**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6f540846-c8af-46db-809e-9d9f6f66fe01",
+   "metadata": {},
+   "source": [
+    "Dans le contexte de PoketraFinday (une plateforme de services financiers où le risque est la perte d'argent), les Faux Négatifs sont généralement considérés comme plus graves que les Faux Positifs."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "55c98f20-d65f-4635-9a23-b7eca3457403",
+   "metadata": {},
+   "source": [
+    "**Q3. Stratégie de Modélisation : Quelles nouvelles variables (Feature Engineering) ont le plus amélioré votre modèle par rapport à la Baseline ?**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f99d951b-359c-4b45-9d7b-7c8184f45bb5",
+   "metadata": {},
+   "source": [
+    "La stratégie de modélisation a été considérablement améliorée grâce à l'ajout de variables dérivées du comportement historique des clients. Ces nouvelles variables (Feature Engineering) ont permis au modèle final (XGBoost) de surpasser la baseline.\n",
+    "Les Variables Clés du Feature Engineering\n",
+    "\n",
+    "Les variables les plus puissantes sont celles qui capturent une anomalie par rapport à l'historique de chaque client (customer_id).\n",
+    "\n",
+    "**1. Variables de Ratio d'Anomalie (Top Impact)**\n",
+    "\n",
+    "Ces variables mesurent si la transaction actuelle est inhabituelle pour le client donné. Elles sont de loin les plus importantes après le type de transaction (type).\n",
+    "\n",
+    "    amount_vs_customer_max (Importance: 0.2031):\n",
+    "\n",
+    "        Ce ratio compare le montant de la transaction en cours au montant maximum qu'un client a jamais transigé.\n",
+    "\n",
+    "        Intérêt : Un ratio proche de 1 (ou supérieur à 1) signale une transaction inhabituellement élevée, ce qui est un indicateur de fraude par prise de contrôle de compte.\n",
+    "\n",
+    "    amount_vs_customer_mean (Importance: 0.0507):\n",
+    "\n",
+    "        Ce ratio compare le montant actuel à la moyenne des transactions du client.\n",
+    "\n",
+    "        Intérêt : Un montant largement supérieur à la moyenne habituelle du client est un signal d'alerte fort.\n",
+    "\n",
+    "**2. Variables d'Agrégation sur le Client (Très Important)**\n",
+    "\n",
+    "Ces variables caractérisent le comportement financier général du client et sont directement utilisées pour calculer les ratios ci-dessus.\n",
+    "\n",
+    "    customer_mean_amount (Importance: 0.1733):\n",
+    "\n",
+    "        La valeur moyenne des transactions effectuées par ce client.\n",
+    "\n",
+    "    customer_total_amount (Importance: 0.0389):\n",
+    "\n",
+    "        Le montant total cumulé transigé par ce client.\n",
+    "\n",
+    "    customer_min_amount (Importance: 0.0326):\n",
+    "\n",
+    "        La valeur minimale des transactions effectuées par ce client.\n",
+    "\n",
+    "**3. Variables Temporelles et Catégorielles**\n",
+    "\n",
+    "Les caractéristiques liées au moment de la transaction ont également contribué à l'amélioration du modèle:\n",
+    "\n",
+    "    day_of_week : Le jour de la semaine.\n",
+    "\n",
+    "    Indicateurs d'heure (is_morning, is_afternoon, is_evening, is_night) : Des indicateurs booléens (0/1) basés sur l'heure de la transaction (step), qui permettent de détecter les fraudes ayant lieu en dehors des heures normales d'activité."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6028854c-2e92-45e2-9cd8-cf497df9d348",
+   "metadata": {},
+   "source": [
+    "**Q4. Enoncez tous les types de fraudes que vous avez décelé lors de votre analyse**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c88528b3-befa-4a97-b146-a42c920c8fe8",
+   "metadata": {},
+   "source": [
+    "L'analyse exploratoire des données (EDA) a permis d'identifier que la fraude sur la plateforme PoketraFinday est concentrée sur deux types de transactions seulement.\n",
+    "Les types de fraudes décelés sont donc :\n",
+    "\n",
+    "**1. TRANSFERT (TRANSFER)**\n",
+    "\n",
+    "    Description du risque : Fraude par virement de fonds d'un compte client vers un autre compte.\n",
+    "\n",
+    "    Gravité : Ce type de transaction présente le taux de fraude le plus élevé (7,29%). Il est souvent le prélude à une extraction rapide des fonds.\n",
+    "\n",
+    "**2. RETRAIT D'ARGENT (CASH_OUT)**\n",
+    "\n",
+    "    Description du risque : Fraude par extraction physique ou par conversion de fonds vers l'extérieur du système.\n",
+    "\n",
+    "    Gravité : Bien qu'il ait un taux de fraude plus faible (3,17%), c'est le type qui représente le plus grand nombre absolu de transactions frauduleuses dans le jeu de données analysé (309 transactions).\n",
+    "\n",
+    "Les autres types de transactions (PAYMENT, CASH_IN et DEBIT) n'ont présenté aucune transaction frauduleuse (0,00% de taux de fraude)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "91231751-886f-4509-8b9f-8f9647a3aa88",
+   "metadata": {},
+   "source": [
+    "**Q5. Selon vous, quelle décision prendre si une transaction *en cours* est détectée comme *fraude* par le modèle ?**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "369f694f-07d5-4a15-bc54-0dff57e9162d",
+   "metadata": {},
+   "source": [
+    "**Bloquer la transaction.**\t\n",
+    "Prévenir la perte financière immédiate. C'est l'action la plus agressive et nécessaire pour les cas hautement probables de fraude (Vrai Positif potentiel).\n",
+    "**Alerter le client par canal sécurisé (SMS ou notification).**\n",
+    "Informer le client que sa transaction a été refusée pour sa sécurité et lui donner une option de confirmation.\n",
+    "**Engager l'équipe Anti-Fraude.**\n",
+    "Si le montant est élevé, une vérification manuelle immédiate est déclenchée pour valider le Vrai Positif et lancer une enquête si nécessaire."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "df452b28-db90-46a0-89bc-763ad7ee0112",
+   "metadata": {},
+   "source": [
+    "### **5\\. Bibliographie**\n",
+    "Recherche Google et chatgpt"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "5b3f2ea9-2fea-44d2-b4b9-b73fa85d324c",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
