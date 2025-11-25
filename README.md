@@ -71,7 +71,7 @@ Merci de lister tous les membres de l'équipe ayant participé au Hackathon.
 
 Voici la liste des fichiers et liens importants pour évaluer notre travail :
 
-* **`notebook.ipynb`** : Le code complet (EDA, Preprocessing, Modélisation) avec commentaires.
+* **`PoketraFinday_Fraud_Detection.ipynb`** : Le code complet (EDA, Preprocessing, Modélisation) avec commentaires.
 * **`submission.csv`** : Nos prédictions sur le fichier `test.csv`.
 * **`readme.md`** : Ce présent rapport.
 * **`final_model.pkl`**
