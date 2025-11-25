@@ -76,7 +76,7 @@ Voici la liste des fichiers et liens importants pour évaluer notre travail :
 * **`readme.md`** : Ce présent rapport.
 * **`final_model.pkl`**
 * **`scaler.pkl`**
-* **🔗 Liens Utiles :**
+* **🔗 Liens Utiles : video presentation du projet**
   https://drive.google.com/file/d/1Ce9ffIovBVVnoIp9s8hRtLNjdMydQgVk/view?usp=sharing
 
 ---
